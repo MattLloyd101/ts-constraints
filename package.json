@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/MattLloyd101/ts-constraints/issues"
   },
-  "homepage": "https://github.com/MattLloyd101/ts-constraints#readme"
+  "homepage": "https://github.com/MattLloyd101/ts-constraints#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "ts-jest": "^26.0.0"
+  }
 }
