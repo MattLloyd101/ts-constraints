@@ -1,0 +1,19 @@
+{
+  "name": "ts-constraints",
+  "version": "1.0.0",
+  "description": "A library that provides rich constraint predicates",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattLloyd101/ts-constraints.git"
+  },
+  "author": "Matthew Lloyd",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MattLloyd101/ts-constraints/issues"
+  },
+  "homepage": "https://github.com/MattLloyd101/ts-constraints#readme"
+}
