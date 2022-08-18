@@ -1,10 +1,11 @@
-import Term from "./Term";
+import Expr from "./Expr";
 import {TermType} from "./TermType";
 
-export default class Literal extends Term {
+// Literals are not expressions but terms, probably need to change the class hierarchy here.
+export default class Literal extends Expr {
     private readonly value: boolean;
     constructor(value: boolean) {
-        super();
+        super([]);
         this.value = value;
     }
 
@@ -16,11 +17,11 @@ export default class Literal extends Term {
         return this.value;
     }
 
-    children(): Term[] {
+    children(): Expr[] {
         return [];
     }
 
-    flatMap<T>(fn: (term: Term) => T[]): T[] {
+    flatMap<T>(fn: (expr: Expr) => T[]): T[] {
         return fn(this);
     }
 }

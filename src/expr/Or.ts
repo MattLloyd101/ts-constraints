@@ -1,15 +1,12 @@
-import Term from "./Term";
+import Expr from "./Expr";
 import {TermType} from "./TermType";
 
-interface Or extends Term {
+interface Or extends Expr {
 
 }
-class OrImpl extends Term implements Or {
-    private readonly _terms: Term[];
-
-    constructor(...terms: Term[]) {
-        super();
-        this._terms = terms;
+class OrImpl extends Expr implements Or {
+    constructor(...exprs: Expr[]) {
+        super(exprs);
     }
 
     type(): TermType {
@@ -22,12 +19,9 @@ class OrImpl extends Term implements Or {
         });
     }
 
-    children(): Term[] {
-        return this._terms;
-    }
 }
 
-const Or = (...terms: Term[]): Or => {
+const Or = (...terms: Expr[]): Or => {
     return new OrImpl(...terms);
 }
 

@@ -1,14 +1,15 @@
-import Term from "./Term";
+import Expr from "./Expr";
 import {TermType} from "./TermType";
 
-interface Var extends Term {
+// Vars are not expressions but terms, probably need to change the class hierarchy here.
+interface Var extends Expr {
     readonly ident: String
 }
 
-class VarImpl extends Term implements Var {
+class VarImpl extends Expr implements Var {
     public readonly ident: String;
     constructor(ident: String) {
-        super();
+        super([]);
         this.ident = ident;
     }
 
@@ -24,11 +25,11 @@ class VarImpl extends Term implements Var {
         return this.ident == term.ident;
     }
 
-    children(): Term[] {
+    children(): Expr[] {
         return [];
     }
 
-    flatMap<T>(fn: (term: Term) => T[]): T[] {
+    flatMap<T>(fn: (expr: Expr) => T[]): T[] {
         return fn(this);
     }
 }
