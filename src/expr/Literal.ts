@@ -24,6 +24,10 @@ export default class Literal extends Expr {
     flatMap<T>(fn: (expr: Expr) => T[]): T[] {
         return fn(this);
     }
+
+    public toString(): string {
+        return this.value ? "True" : "False";
+    }
 }
 
 export const True = new Literal(true);

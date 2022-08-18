@@ -19,6 +19,10 @@ class OrImpl extends Expr implements Or {
         });
     }
 
+    public toString(): string {
+        return `Or(${this.children()})`;
+    }
+
 }
 
 const Or = (...terms: Expr[]): Or => {

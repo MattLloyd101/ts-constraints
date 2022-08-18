@@ -32,6 +32,10 @@ class VarImpl extends Expr implements Var {
     flatMap<T>(fn: (expr: Expr) => T[]): T[] {
         return fn(this);
     }
+
+    public toString(): string {
+        return `Var(${this.ident})`;
+    }
 }
 
 const Var = (ident: String) => {

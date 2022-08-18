@@ -19,6 +19,9 @@ class AndImpl extends Expr implements And  {
         });
     }
 
+    public toString(): string {
+        return `And(${this.children()})`;
+    }
 }
 
 const And = (...exprs: Expr[]): And => {

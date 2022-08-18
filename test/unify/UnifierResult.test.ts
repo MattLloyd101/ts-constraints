@@ -17,7 +17,7 @@ describe("UnifierResult", () => {
         test("Join should return Subst with ID & Subst", () => {
             const subst = new Substitution(Var("a"), True);
             const out = UnifierResult.Identical.join(new UnifierResult([subst]));
-            expect(out.type).toEqual(UnifierResultType.Subst);
+            expect(out.type).toEqual(UnifierResultType.Substitution);
             expect(out.substitutions).toHaveLength(1);
             expect(out.substitutions).toContainEqual(subst);
         });
@@ -25,7 +25,7 @@ describe("UnifierResult", () => {
         test("Join should return Subst with Subst & ID", () => {
             const subst = new Substitution(Var("a"), True);
             const out = new UnifierResult([subst]).join(UnifierResult.Identical);
-            expect(out.type).toEqual(UnifierResultType.Subst);
+            expect(out.type).toEqual(UnifierResultType.Substitution);
             expect(out.substitutions).toHaveLength(1);
             expect(out.substitutions).toContainEqual(subst);
         });
@@ -34,7 +34,7 @@ describe("UnifierResult", () => {
             const subst1 = new Substitution(Var("a"), True);
             const subst2 = new Substitution(Var("b"), False);
             const out = new UnifierResult([subst1]).join(new UnifierResult([subst2]));
-            expect(out.type).toEqual(UnifierResultType.Subst);
+            expect(out.type).toEqual(UnifierResultType.Substitution);
             expect(out.substitutions).toHaveLength(2);
             expect(out.substitutions).toContainEqual(subst1);
             expect(out.substitutions).toContainEqual(subst2);

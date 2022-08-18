@@ -8,7 +8,7 @@ import Substitution from "./Substitution";
 export default class Unifier {
 
     private exprContainsVariable(expr: Expr, v: Var): boolean {
-        return expr.any(expr => expr.type() === TermType.Var);
+        return expr.any(expr => expr === v);
     }
 
     unify(a: Expr, b: Expr): UnifierResult {

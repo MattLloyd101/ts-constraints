@@ -1,9 +1,9 @@
 import Substitution from "./Substitution";
 
 export enum UnifierResultType {
-    Identical,
-    Ununifiable,
-    Subst
+    Identical= "Identical",
+    Ununifiable = "Ununifiable",
+    Substitution = "Substitution"
 }
 
 export default class UnifierResult {
@@ -13,7 +13,7 @@ export default class UnifierResult {
     readonly type: UnifierResultType;
     readonly substitutions: Substitution[];
 
-    constructor(substitutions: Substitution[] = [], type = UnifierResultType.Subst) {
+    constructor(substitutions: Substitution[] = [], type = UnifierResultType.Substitution) {
         this.substitutions = substitutions;
         this.type = type;
     }
@@ -22,11 +22,11 @@ export default class UnifierResult {
         if(this.type === UnifierResultType.Ununifiable) return UnifierResult.Ununifiable;
         if(subExprResult.type === UnifierResultType.Ununifiable) return UnifierResult.Ununifiable;
 
-        if(this.type === UnifierResultType.Subst && subExprResult.type === UnifierResultType.Subst) {
+        if(this.type === UnifierResultType.Substitution && subExprResult.type === UnifierResultType.Substitution) {
             return new UnifierResult(this.substitutions.concat(subExprResult.substitutions));
         }
 
-        if(this.type === UnifierResultType.Subst) {
+        if(this.type === UnifierResultType.Substitution) {
             return this;
         }
 
